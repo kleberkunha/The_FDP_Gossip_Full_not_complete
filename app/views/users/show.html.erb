@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <%= User.find(params[:id]).first_name%> <%= User.find(params[:id]).last_name%>
+        </div>
+        <div class="card-body">
+            <p>Description: <%= User.find(params[:id]).description%></p>
+            <p>Email: <%= User.find(params[:id]).email%></p>
+            <p>Age: <%= User.find(params[:id]).age%></p>
+            <p>City name: <%= City.find(User.find(params[:id]).city_id).name%></p><br/>
+            <button type="button" class="btn">
+                 <%= link_to("Go back to Home page", index_path) %> 
+            </button>
+        <div class="card-footer text-muted">
+            15 days ago
+        </div>
+    </div>
+</div>

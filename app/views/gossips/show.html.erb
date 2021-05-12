@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <%= Gossip.find(params[:id]).title%>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Content : <%= Gossip.find(params[:id]).content %></h5>
+            <p class="card-text">Author : <%= Gossip.find(params[:id]).user.first_name %> <%= Gossip.find(params[:id]).user.last_name %></p>
+            <p class="card-text">City : <%= City.find(Gossip.find(params[:id]).user.city_id).name %></p>
+            <button type="button" class="btn">
+                <%= link_to("See more about the author", user_path(Gossip.find(params[:id]).user.id)) %>
+            </button>
+            <button type="button" class="btn">
+                 <%= link_to("Go back to Home page", index_path) %>
+            </button>
+        </div>
+        <div class="card-footer text-muted">
+            15 days ago
+        </div>
+    </div>
+</div>
